@@ -1,0 +1,21 @@
+{
+  "name": "consultor-skoob",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "es7",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "alexa-skill-local"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ask-sdk": "^2.6.0",
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.0.0",
+    "iconv-lite": "^0.4.24"
+  }
+}

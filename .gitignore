@@ -1,0 +1,9 @@
+#IDE Stuff's
+.vscode
+
+#JS Stuff's
+node_modules
+
+
+#Alexa Skill Local config file
+asl-config.json
