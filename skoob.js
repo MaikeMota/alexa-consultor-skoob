@@ -20,7 +20,7 @@ api.interceptors.response.use(decodeResponse);
 api.defaults.headers.common["User-Agent"] = USER_AGENT;
 
 async function searchBook(bookName) {
-    let response = await api.get(`${SEARCH_ENDPOINT}${bookName}`);
+    let response = await api.get(`${SEARCH_ENDPOINT}${encodeURIComponent(bookName)}`);
     return JSON.parse(response.data).results;
 }
 
@@ -35,16 +35,17 @@ async function getBookData(bookId) {
     const rating = $(RATING_SELECTOR).text();
     let ratingVotes = $(RATING_VOTES_SELECTOR).text();
 
-    if(ratingVotes){
-         let matching = ratingVotes.match(/[0-9]{1,}[.]?[0-9]{1,}/g)
-         ratingVotes = matching[0];
+    if (ratingVotes) {
+        let matching = ratingVotes.match(/[0-9]{1,}[.]?[0-9]{1,}/g)
+        if (matching) ratingVotes = matching[0];
     }
-    
+
     let tradingUnits = $(TRADING_SELECTOR).text();
 
-    if(tradingUnits){
-         let matching = tradingUnits.match(/[0-9]{1,}[.]?[0-9]{1,}/g)
-         tradingUnits = matching[0];
+    if (tradingUnits) {
+        let matching = tradingUnits.match(/[0-9]{1,}[.]?[0-9]{1,}/g)
+        if (matching) tradingUnits = matching[0];
+
     }
     const description = $(DESCRIPTION_SELECTOR).text();
     const author = $(AUTHOR_SELECTOR).text();
